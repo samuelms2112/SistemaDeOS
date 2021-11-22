@@ -94,6 +94,12 @@
         <span>Clientes</span>
       </a>
     </li>
+    <li id="menu08">
+      <a href="categoria.php">
+        <i class="fa fa-calendar-check-o"></i>
+        <span>Categorias</span>
+      </a>
+    </li>
     <li id="menu03">
       <a href="produtos.php">
         <i class="fa fa-calendar-check-o"></i>

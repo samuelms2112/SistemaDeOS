@@ -150,7 +150,7 @@ include_once dirname(__FILE__) . '/partials/head.php';
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" id="FecharModalE" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+              <button type="button" id="FecharModalS" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
               <button type="button" id="SalvarSetor" class="btn btn-success">Salvar</button>
             </div>
           </form>
@@ -376,7 +376,7 @@ include_once dirname(__FILE__) . '/partials/head.php';
           idPessoa: idPessoa,
         }
       }).done(function(resposta) {
-        $(".FecharModal").trigger('click');
+        $(".FecharModalS").trigger('click');
         mostraDialogo(resposta, 'alert-success');
         GerarTabela()
       }).fail(function() {
