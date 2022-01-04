@@ -25,4 +25,24 @@
       }
     })
   })
+
+</script>
+
+
+<script>
+   $.ajax({
+        method: "GET",
+        url: "/controller/SessionController.php",
+      }).done(function(resposta) {
+        console.log(resposta)
+        console.log(resposta)
+        // if(resposta['status'] == 1){
+        //   alert('entrei')
+        // } else {
+        //   window.location.replace('/login.php')
+        // }
+      }).fail(function() {
+        console.log('falha ao Carregar Tabela');
+        mostraDialogo('Login e/ou Senha errados', 'alert-danger');
+      });
 </script>

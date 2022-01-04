@@ -97,6 +97,8 @@ include_once dirname(__FILE__) . '/partials/head.php';
     </div>
     <!-- /.content-wrapper -->
 
+
+
     <?php
     include_once dirname(__FILE__) . '/partials/footer.php';
     ?>

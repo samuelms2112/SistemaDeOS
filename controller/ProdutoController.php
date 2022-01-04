@@ -1,19 +1,16 @@
 <?php
 error_reporting(E_ALL);
 include_once dirname(__FILE__) . '/newVerbs.php';
-include_once dirname(__FILE__) . '/../class/DaoUser.php';
-$objS = new DaoUser();
+include_once dirname(__FILE__) . '/../class/DaoProduto.php';
+$objS = new DaoProduto();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $objS->setIdcolaborador($_POST['id']);
-    $objS->setEmail($_POST['login']);
-    $objS->setSenha(password_hash($_POST['senha'], PASSWORD_DEFAULT));
-
+    $objS->setdescricao($_POST['descricao']);
     $resposta = $objS->Insert();
 
     echo json_encode($resposta);
-} else if ($_SERVER['REQUEST_METHOD'] == "GET") {
+} /*else if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     if ($_GET['tipoGet'] == "SelectTodos") {
         $dados = $objS->SelectTodos();
@@ -25,40 +22,39 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         echo json_encode($resposta);
     } 
     
-    // else if ($_GET['tipoGet'] == "SelectUltimo"){
-    //     $dados = $objS->SelectUltimo();
-
-    //     while ($resultado = mysqli_fetch_assoc($dados)) {
-    //         $resposta[] = array_map('utf8_encode', $resultado);
-    //     }
-    //     echo json_encode($resposta);
-    // } 
-    
-     else if ($_GET['tipoGet'] == "Select"){
-
-        $objS->setIdusuario($_GET['cod']);
-        $dados = $objS->Login();
+    else if ($_GET['tipoGet'] == "SelectUltimo"){
+        $dados = $objS->SelectUltimo();
 
         while ($resultado = mysqli_fetch_assoc($dados)) {
             $resposta[] = array_map('utf8_encode', $resultado);
         }
-
         echo json_encode($resposta);
     } 
+    
+    else if ($_GET['tipoGet'] == "Select"){
+
+        $objS->setidcategoria($_GET['cod']);
+        $dados = $objS->Select();
+
+        while ($resultado = mysqli_fetch_assoc($dados)) {
+            $resposta[] = array_map('utf8_encode', $resultado);
+        }
+        echo json_encode($resposta);
+    }
 } else if ($_SERVER['REQUEST_METHOD'] == "PUT") {
 
-    $objS->setIdusuario($_PUT['EID']);
-    $objS->setEmail($_PUT['EEmail']);
+    $objS->setidcategoria($_PUT['cod']);
+    $objS->setdescricao($_PUT['descricao']);
 
     $resposta = $objS->Update();
 
     echo json_encode($resposta);
 } else if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
-    $objS->setIdusuario($_DELETE['cod']);
+    $objS->setidcategoria($_DELETE['cod']);
     $resposta = $objS->Delete();
 
     echo json_encode($resposta);
-} else {
+} */else {
     echo json_encode('Dei erro');
 }
 
